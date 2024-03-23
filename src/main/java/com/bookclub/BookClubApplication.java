@@ -2,16 +2,16 @@
     Clay Siefken (2024) CIS 530 Server-Side Development. Bellevue Univ.
 */
 
-package com.bookclub.demo;
+package com.bookclub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class BookClubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(BookClubApplication.class, args);
 	}
 
 }
