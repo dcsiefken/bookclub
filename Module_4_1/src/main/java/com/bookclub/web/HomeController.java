@@ -4,11 +4,15 @@ import com.bookclub.model.Book;
 import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bookclub.service.impl.MemBookDao;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequestMapping("/")
@@ -44,4 +48,15 @@ public class HomeController {
     public String showContactUs(Model model) {
         return "contact";
     }
+
+    @DeleteMapping("item")
+    public void deleteItem(@PathVariable("id") String id) {
+        // delete item from data store
+    }
+
+    @PostMapping("item")
+    public void postItem(@RequestBody String postEntity) {
+        // create a new item in the data store
+    }
+
 }
