@@ -1,9 +1,13 @@
 package com.bookclub.model;
 
+import org.springframework.data.annotation.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public class WishlistItem {
+    @Id
+    private String id;
+
     @NotNull
     @NotEmpty(message = "ISBN is a required field")
     private String isbn;
@@ -48,9 +52,23 @@ public class WishlistItem {
         this.title = title;
     }
 
+    /**
+     * @return String return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "WishlistItem{isbn=" + isbn + ", title=" + title + "}";
+        return "WishlistItem{id=" + id + ", isbn=" + isbn + ", title=" + title + "}";
     }
 
 }
