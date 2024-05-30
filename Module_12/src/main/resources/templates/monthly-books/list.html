@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bookclub | Book of the Month | List</title>
+    <!-- Bootstrap Stylesheet CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div th:insert="~{fragments/header :: header}"></div>
+    <div class="container py-5" style="width: 50%">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1>Book of the Month: List</h1>
+        </div>
+      </div>
+      <br />
+      <br />
+      <!-- start of the row -->
+      <a
+        href="/monthly-books/new"
+        th:href="@{/monthly-books/new}"
+        class="btn btn-outline-secondary text-center"
+        >New Monthly Book</a
+      >
+      <div class="row">
+        <div id="monthly-books"></div>
+            <table class="table"><tr><th>Month</th><th>ISBN</th><th>Functions</th></tr>
+                <tbody th:each="book : ${books}">                
+                    <tr>
+                        <td th:text="${book.getMonth()}"></td>
+                        <td th:text="${book.getIsbn()}"></td>
+                        <td>
+                            <a href="#" th:href="@{/monthly-books/remove/{id}(id=${book.getId()})}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+    </div>
+  </body>
+</html>
